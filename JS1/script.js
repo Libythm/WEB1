@@ -91,4 +91,19 @@ function mostrarFilmes(lista) {
     document.getElementById("contador").textContent = lista.length;
 }
 
+function buscarFilmes() {
+    let texto = document.getElementById("busca").value.toLowerCase();
+    let resultado = [];
+
+    for (let filme of filmes) {
+        if (filme.titulo.toLowerCase().includes(texto)) {
+            resultado.push(filme);
+        }
+    }
+
+    mostrarFilmes(resultado);
+}
+
+document.getElementById("busca").addEventListener("input", buscarFilmes);
+
 mostrarFilmes(filmes);
