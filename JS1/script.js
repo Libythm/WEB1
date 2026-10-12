@@ -58,4 +58,37 @@ let filmes = [
     }
 ];
 
-console.log(filmes);
+
+function mostrarFilmes(lista) {
+    let catalogo = document.getElementById("lista-filmes");
+    let mensagem = document.getElementById("mensagem");
+
+    catalogo.innerHTML = "";
+
+    if (lista.length === 0) {
+        mensagem.textContent = "Nenhum filme encontrado";
+    } else {
+        mensagem.textContent = "";
+    }
+
+    for (let filme of lista) {
+        let recomendado = filme.nota >= 8
+            ? "⭐ Recomendado"
+            : "";
+
+        catalogo.innerHTML += `
+            <div class="card-filme">
+                <img src="${filme.poster}" alt="${filme.titulo}" width="150">
+                <h3>${filme.titulo}</h3>
+                <p>Ano: ${filme.ano}</p>
+                <p>Gênero: ${filme.genero}</p>
+                <p>Nota: ${filme.nota}</p>
+                <p>${recomendado}</p>
+            </div>
+        `;
+    }
+
+    document.getElementById("contador").textContent = lista.length;
+}
+
+mostrarFilmes(filmes);
