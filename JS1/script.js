@@ -58,6 +58,8 @@ let filmes = [
     }
 ];
 
+let favoritos = [];
+
 
 function mostrarFilmes(lista) {
     let catalogo = document.getElementById("lista-filmes");
@@ -76,20 +78,58 @@ function mostrarFilmes(lista) {
             ? "⭐ Recomendado"
             : "";
 
-        catalogo.innerHTML += `
-            <div class="card-filme">
-                <img src="${filme.poster}" alt="${filme.titulo}" width="150">
-                <h3>${filme.titulo}</h3>
-                <p>Ano: ${filme.ano}</p>
-                <p>Gênero: ${filme.genero}</p>
-                <p>Nota: ${filme.nota}</p>
-                <p>${recomendado}</p>
-            </div>
+        let card = document.createElement("div");
+        card.className = "card-filme";
+
+        card.innerHTML = `
+            <img src="${filme.poster}" alt="${filme.titulo}" width="150">
+            <h3>${filme.titulo}</h3>
+            <p>Ano: ${filme.ano}</p>
+            <p>Gênero: ${filme.genero}</p>
+            <p>Nota: ${filme.nota}</p>
+            <p>${recomendado}</p>
+            <button class="btn-favoritar">♥ Favoritar</button>
         `;
+
+        let botao = card.querySelector(".btn-favoritar");
+
+        botao.addEventListener("click", function () {
+            favoritar(filme.titulo);
+        });
+
+        catalogo.appendChild(card);
     }
 
     document.getElementById("contador").textContent = lista.length;
 }
+
+function favoritar(titulo) {
+    if (!favoritos.includes(titulo)) {
+        favoritos.push(titulo);
+    }
+
+    mostrarFavoritos();
+}
+
+function mostrarFavoritos() {
+    let lista = document.getElementById("lista-favoritos");
+
+    lista.innerHTML = "";
+
+    for (let titulo of favoritos) {
+        lista.innerHTML += `<li>${titulo}</li>`;
+    }
+
+    document.getElementById("contador-favoritos").textContent = favoritos.length;
+}
+
+document.getElementById("btn-limpar-favoritos").addEventListener("click", function () {
+    favoritos = [];
+    mostrarFavoritos();
+});
+
+mostrarFavoritos();
+
 
 function buscarFilmes() {
     let texto = document.getElementById("busca").value.toLowerCase();
