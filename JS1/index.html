@@ -8,21 +8,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- Cabeçalho -->
     <header>
         <h1>CineWorld</h1>
         <h2>Seu catálogo de filmes</h2>
     </header>
-
+    <!--navegação-->
         <nav>
     <a href="#destaque">Destaque</a>
     <a href="#catalogo">Catálogo</a>
     <a href="#tabela">Lançamentos</a>
-    <a href="#contato">Contato</a>
     <a href="#generos">Gêneros</a>
 
     </nav>
-
+    <!--filme em destaque-->
     <section id="destaque">
         <h2 id="titulo-destaque">Destaque da Semana</h2>
 
@@ -45,7 +44,7 @@
             </ul>
         </div>
     </section>
-
+    <!-- gênero dos filmes-->
     <section id="generos">
     <h2>Gêneros de Filmes</h2>
 
@@ -59,7 +58,7 @@
     </ul>
 </section>
 
-    
+    <!-- catálogo de filmes -->
 <section id="catalogo">
     <h2>Catálogo de Filmes</h2>
 
@@ -77,7 +76,7 @@
     <div id="lista-filmes"></div>
     <p id="mensagem"></p>
 </section>
-
+<!-- filtro por gênero -->
 <select id="filtro-genero">
 
     <option value="Todos">Todos</option>
@@ -90,8 +89,11 @@
 
 </select>
 
+<!-- botão para inverter a ordem dos filmes -->
+
 <button id="btn-inverter">Inverter ordem</button>
 
+<!-- favoritos -->
 <section id="favoritos">
     <h2>Meus Favoritos</h2>
 

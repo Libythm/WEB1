@@ -1,3 +1,4 @@
+/* Arrya de filmes com informações como título, ano, gênero, nota e poster */
 
 let filmes = [
     {
@@ -58,8 +59,11 @@ let filmes = [
     }
 ];
 
+/* Array para armazenar os filmes favoritos do usuário */
+
 let favoritos = [];
 
+/* Função para exibir os filmes na tela, criando elementos HTML dinamicamente com base nas informações do array de filmes. */
 
 function mostrarFilmes(lista) {
     let catalogo = document.getElementById("lista-filmes");
@@ -103,6 +107,8 @@ function mostrarFilmes(lista) {
     document.getElementById("contador").textContent = lista.length;
 }
 
+/* Função para adicionar um filme à lista de favoritos, verificando se ele já está na lista antes de adicioná-lo. */
+
 function favoritar(titulo) {
     if (!favoritos.includes(titulo)) {
         favoritos.push(titulo);
@@ -130,6 +136,7 @@ document.getElementById("btn-limpar-favoritos").addEventListener("click", functi
 
 mostrarFavoritos();
 
+/* Função para buscar filmes com base no texto digitado pelo usuário e no gênero selecionado, filtrando o array de filmes e exibindo os resultados na tela. */
 
 function buscarFilmes() {
     let texto = document.getElementById("busca").value.toLowerCase();
