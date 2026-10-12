@@ -113,3 +113,8 @@ document.getElementById("busca").addEventListener("input", buscarFilmes);
 document.getElementById("filtro-genero").addEventListener("change", buscarFilmes);
 
 mostrarFilmes(filmes);
+
+document.getElementById("btn-inverter").addEventListener("click", function () {
+    filmes.reverse();
+    buscarFilmes();
+});
