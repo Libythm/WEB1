@@ -93,10 +93,14 @@ function mostrarFilmes(lista) {
 
 function buscarFilmes() {
     let texto = document.getElementById("busca").value.toLowerCase();
+    let genero = document.getElementById("filtro-genero").value;
     let resultado = [];
 
     for (let filme of filmes) {
-        if (filme.titulo.toLowerCase().includes(texto)) {
+        let tituloCorresponde = filme.titulo.toLowerCase().includes(texto);
+        let generoCorresponde = genero === "Todos" || filme.genero === genero;
+
+        if (tituloCorresponde && generoCorresponde) {
             resultado.push(filme);
         }
     }
@@ -105,5 +109,7 @@ function buscarFilmes() {
 }
 
 document.getElementById("busca").addEventListener("input", buscarFilmes);
+
+document.getElementById("filtro-genero").addEventListener("change", buscarFilmes);
 
 mostrarFilmes(filmes);
