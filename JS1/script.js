@@ -158,3 +158,15 @@ document.getElementById("btn-inverter").addEventListener("click", function () {
     filmes.reverse();
     buscarFilmes();
 });
+
+let tituloDestaque = document.getElementById("titulo-destaque");
+
+tituloDestaque.addEventListener("mouseenter", function () {
+    tituloDestaque.style.color = "red";
+    tituloDestaque.style.backgroundColor = "#eeeeee";
+});
+
+tituloDestaque.addEventListener("mouseout", function () {
+    tituloDestaque.style.color = "";
+    tituloDestaque.style.backgroundColor = "";
+});
